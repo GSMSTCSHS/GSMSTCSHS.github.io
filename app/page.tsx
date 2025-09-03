@@ -10,7 +10,7 @@ export default function Home() {
           <Image src="/icon.png" width={400} height={400} alt="CSHS Logo" />
         }
         contentRight={
-          <p className="text-center text-4xl">Welcome to GSMST's Computer Science Honor Society website!</p>
+          <p className="text-center text-4xl">Welcome to GSMST&apos;s Computer Science Honor Society website!</p>
         }
       />
       <Section
