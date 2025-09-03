@@ -5,8 +5,10 @@ import { CircleUser } from "lucide-react";
 
 const Navbar = () => {
   const links = [
+    { text: "Home", href: "/" },
     { text: "Events", href: "/events" },
     { text: "Service", href: "/service" },
+    { text: "Projects", href: "/projects" },
     { text: "Calendar", href: "/calendar" },
   ].map((obj) => (
     <div key={obj.text}>
