@@ -17,11 +17,11 @@ export default function Home() {
         isContentLeft={false}
         contentLeft={
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         }
         contentRight={
-          <h1 className="text-5xl font-bold">Member Elegibility</h1>
+          <h1 className="text-5xl font-bold text-center">Member Elegibility</h1>
         }
       />
     </main>
