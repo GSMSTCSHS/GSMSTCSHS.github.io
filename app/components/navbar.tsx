@@ -1,43 +1,182 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-const Navbar = () => {
-  const links = [
-    { text: "Home", href: "/" },
-    { text: "Events", href: "/events" },
-    { text: "Service", href: "/service" },
-    { text: "Projects", href: "/projects" },
-    { text: "Calendar", href: "/calendar" },
-  ].map((obj) => (
-    <div key={obj.text}>
-      <Link href={obj.href} className="text-[20px]">
-        {obj.text}
-      </Link>
-    </div>
-  ));
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import Link from "next/link";
+import Image from "next/image";
+
+const pages = [
+  { label: "Home", href: "/" },
+  { label: "Events", href: "/events" },
+  { label: "Service", href: "/service" },
+  { label: "Projects", href: "/projects" },
+  { label: "Calendar", href: "/calendar" },
+];
+const settings = [
+  { label: "Account", href: "/account" },
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Logout", href: "/logout" },
+];
+
+function ResponsiveAppBar() {
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
+
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
-    <nav className="flex sticky z-50 top-0 bg-neutral h-[100px] w-full justify-between">
-      <div className="flex ml-5">
-        <Link href={"/"} className="flex items-center space-x-2">
-          <Image src="/icon.png" width={85} height={85} alt="CSHS logo" />
-          <p className="font-bold text-[36px]">GSMST</p>
-        </Link>
-      </div>
-      <div className="flex items-center space-x-10">{links}</div>
-      <div className="flex items-center mr-5">
-        <Link target="_blank" href={"https://github.com/GSMSTCSHS/GSMSTCSHS.github.io"}>
-        <Image
-          src={"/github-mark-white.svg"}
-          width={40}
-          height={40}
-          alt={"Github logo"}
-        />
-        </Link>
-      </div>
-    </nav>
-  );
-};
+    <AppBar position="sticky">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters className="gap-5">
+          {/* Mobile */}
+          <Box className="sm:flex md:hidden">
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{ display: { xs: "block", md: "none" } }}
+            >
+              {pages.map((page) => (
+                <MenuItem
+                  key={page.label}
+                  component={Link}
+                  href={page.href}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Typography
+                    sx={{ textAlign: "center", textTransform: "none" }}
+                  >
+                    {page.label}
+                  </Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
 
-export default Navbar;
+          {/* Mobile and desktop */}
+          <Box className="flex flex-row place-items-center gap-2">
+            <Link href={"/"}>
+              <Image src="/icon.png" width={60} height={60} alt="CSHS logo" />
+            </Link>
+            <Typography
+              variant="h6"
+              noWrap
+              component={Link}
+              href={"/"}
+              className="align-middle font-bold"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              GSMST CSHS
+            </Typography>
+          </Box>
+
+          {/* Web */}
+          <Box
+            className="sm:hidden md:flex flex-1"
+          >
+            {pages.map((page) => (
+              <Button
+                key={page.label}
+                component={Link}
+                href={page.href}
+                onClick={handleCloseNavMenu}
+                className="my-2 text-center"
+                sx={{ color: "white", display: "block", textTransform: "none" }}
+              >
+                {page.label}
+              </Button>
+            ))}
+          </Box>
+
+          {/* Mobile and web */}
+          {/* TODO: opening the user settings hides the scrollbar */}
+          <Box>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} className="p-0">
+                <Avatar alt="User account" src="" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              className="mt-[45px]"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting.label} onClick={handleCloseUserMenu}>
+                  <Typography
+                    className="text-center"
+                    component={Link}
+                    href={setting.href}
+                  >
+                    {setting.label}
+                  </Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+}
+export default ResponsiveAppBar;

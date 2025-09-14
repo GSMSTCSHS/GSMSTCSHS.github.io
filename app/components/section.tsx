@@ -14,7 +14,7 @@ const Section = (props: props) => {
       {/* Left div */}
       <div
         className={`h-full w-[${props.isContentLeft ? "40%" : "60%"}] ${
-          props.isContentLeft ? "" : "bg-info"
+          props.isContentLeft ? "" : "bg-primary"
         } justify-items-center place-content-center`}
       >
         {props.contentLeft}
@@ -22,7 +22,7 @@ const Section = (props: props) => {
       {/* Right div */}
       <div
         className={`h-full w-[${props.isContentLeft ? "60%" : "40%"}] ${
-          props.isContentLeft ? "bg-info" : ""
+          props.isContentLeft ? "bg-blue-200" : ""
         } justify-items-center place-content-center`}
       >
         {props.contentRight}
