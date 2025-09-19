@@ -8,7 +8,7 @@ import { PersonCircleOutline } from "react-ionicons";
 
 const pages = [
   { label: "Home", href: "/" },
-  { label: "Events", href: "/events" },
+  { label: "Announcements", href: "/announcements" },
   { label: "Service", href: "/service" },
   { label: "Projects", href: "/projects" },
   { label: "Calendar", href: "/calendar" },

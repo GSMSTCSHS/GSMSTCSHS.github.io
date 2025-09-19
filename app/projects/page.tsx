@@ -4,30 +4,34 @@ import Section from "../components/section";
 
 const page = () => {
   return (
-    <main>
+    <main className="bg-background">
       <Section
         isContentLeft={true}
-        image= {
-
-          <Image src="/Samsung SFT.png" width={400} height={400} alt="Samsung Solve for Tomorrow Logo" />
+        image={
+          <Image
+            src="/Samsung SFT.png"
+            width={400}
+            height={400}
+            alt="Samsung Solve for Tomorrow Logo"
+            className="pb-5"
+          />
         }
-        headerText={ "Samsung Solve for Tomorrow"
-      }
-        content={
-        <p>Samsung SFT</p>
-        }
+        headerText="Project Details"
+        content={<p>Samsung SFT</p>}
       />
       <Section
         isContentLeft={false}
-        content={
-          <p className="text-center">
-            Congressional app challenge
-          </p>
-        }
+        content={<p className="text-center">Congressional app challenge</p>}
         image={
-          <Image src="/Congressional App Challenge.png" width={400} height={400} alt="Congressional App Challenge Logo" />
+          <Image
+            src="/Congressional App Challenge.png"
+            width={400}
+            height={400}
+            alt="Congressional App Challenge Logo"
+            className="pb-5"
+          />
         }
-        headerText="Congressional App Challenge"
+        headerText="Project Details"
       />
     </main>
   );

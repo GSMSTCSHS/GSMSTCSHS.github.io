@@ -1,30 +1,15 @@
 import React from "react";
 import Section from "../components/section";
+import Banner from "../components/banner";
 
 const page = () => {
   return (
-    <main>
-      <Section
-        isContentLeft={true}
-        headerText="Service Requirements"
-        content={
-          <p className="text-center">
-            All members must complete 10 service hours per year to be eligible
-            for a cord.
-          </p>
-        }
-      />
-      <div className="text-center w-full py-10">
-        <h1 className="text-5xl font-bold">Service Opportunities</h1>
-      </div>
+    <main className="bg-background">
+      <Banner text="Service Opportunities" className="bg-cshs-700" />
       <Section
         isContentLeft={false}
         headerText="Service Opportunity 1"
-        content={
-          <p className="text-center">
-            Right text.
-          </p>
-        }
+        content={<p className="text-center">Right text.</p>}
       />
     </main>
   );

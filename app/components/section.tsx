@@ -10,7 +10,7 @@ interface props {
 
 const Section = (props: props) => {
   return (
-    <div className="flex h-[calc(100vh-64px)] w-full bg-background font-display">
+    <div className="flex h-[calc(100vh-64px)] w-full">
       {/* Left div */}
       <div
         className={`${
