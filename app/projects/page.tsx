@@ -7,23 +7,27 @@ const page = () => {
     <main>
       <Section
         isContentLeft={true}
-        contentLeft={
+        image= {
+
           <Image src="/Samsung SFT.png" width={400} height={400} alt="Samsung Solve for Tomorrow Logo" />
+        }
+        headerText={ "Samsung Solve for Tomorrow"
       }
-        contentRight={
+        content={
         <p>Samsung SFT</p>
         }
       />
       <Section
         isContentLeft={false}
-        contentLeft={
+        content={
           <p className="text-center">
             Congressional app challenge
           </p>
         }
-        contentRight={
+        image={
           <Image src="/Congressional App Challenge.png" width={400} height={400} alt="Congressional App Challenge Logo" />
         }
+        headerText="Congressional App Challenge"
       />
     </main>
   );

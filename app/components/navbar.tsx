@@ -1,20 +1,10 @@
 "use client";
 
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import Image from "next/image";
+// import { CircleUser } from "lucide-react";
+import { PersonCircleOutline } from "react-ionicons";
 
 const pages = [
   { label: "Home", href: "/" },
@@ -29,154 +19,42 @@ const settings = [
   { label: "Logout", href: "/logout" },
 ];
 
-function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+const Navbar = () => {
+  const [navAnchor, setNavAnchor] = React.useState<null | HTMLElement>(null);
+  const [usrAnchor, setUsrAnchor] = React.useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
+  const openNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setNavAnchor(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
+  const openUsrMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setNavAnchor(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const closeNavMenu = () => {
+    setNavAnchor(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const closeUsrMenu = () => {
+    setNavAnchor(null);
   };
 
   return (
-    <AppBar position="sticky">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters className="gap-5">
-          {/* Mobile */}
-          <Box className="sm:flex md:hidden">
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page.label}
-                  component={Link}
-                  href={page.href}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Typography
-                    sx={{ textAlign: "center", textTransform: "none" }}
-                  >
-                    {page.label}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          {/* Mobile and desktop */}
-          <Box className="flex flex-row place-items-center gap-2">
-            <Link href={"/"}>
-              <Image src="/icon.png" width={60} height={60} alt="CSHS logo" />
-            </Link>
-            <Typography
-              variant="h6"
-              noWrap
-              component={Link}
-              href={"/"}
-              className="align-middle font-bold"
-              sx={{
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              GSMST CSHS
-            </Typography>
-          </Box>
-
-          {/* Web */}
-          <Box
-            className="sm:hidden md:flex flex-1"
-          >
-            {pages.map((page) => (
-              <Button
-                key={page.label}
-                component={Link}
-                href={page.href}
-                onClick={handleCloseNavMenu}
-                className="my-2 text-center"
-                sx={{ color: "white", display: "block", textTransform: "none" }}
-              >
-                {page.label}
-              </Button>
-            ))}
-          </Box>
-
-          {/* Mobile and web */}
-          {/* TODO: opening the user settings hides the scrollbar */}
-          <Box>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} className="p-0">
-                <Avatar alt="User account" src="" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              className="mt-[45px]"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting.label} onClick={handleCloseUserMenu}>
-                  <Typography
-                    className="text-center"
-                    component={Link}
-                    href={setting.href}
-                  >
-                    {setting.label}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <div className="sticky top-0 shadow-xl w-full bg-cshs-800 justify-items-center font-display">
+      <div className="flex flex-row w-full h-16 items-center justify-between px-4">
+        <Link className="flex flex-row gap-4 items-center" href={"/"}>
+          <Image width={64} height={64} src="/icon.png" alt="CSHS Logo" />
+          <p className="text-2xl text-white">GSMST CSHS</p>
+        </Link>
+        {pages.map((value) => (
+          <Link href={value.href} key={value.label} className="text-xl text-white">
+            {value.label}
+          </Link>
+        ))}
+        <Link href={"/account"}>
+          <PersonCircleOutline height="48px" width="48px" color="white" />
+        </Link>
+      </div>
+    </div>
   );
-}
-export default ResponsiveAppBar;
+};
+
+export default Navbar;

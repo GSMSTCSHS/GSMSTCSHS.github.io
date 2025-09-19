@@ -6,8 +6,8 @@ const page = () => {
     <main>
       <Section
         isContentLeft={true}
-        contentLeft={<h1 className="text-5xl font-bold">Service Requirements</h1>}
-        contentRight={
+        headerText="Service Requirements"
+        content={
           <p className="text-center">
             All members must complete 10 service hours per year to be eligible
             for a cord.
@@ -19,8 +19,8 @@ const page = () => {
       </div>
       <Section
         isContentLeft={false}
-        contentLeft={<h1 className="text-5xl font-bold">Service Opportunity 1</h1>}
-        contentRight={
+        headerText="Service Opportunity 1"
+        content={
           <p className="text-center">
             Right text.
           </p>

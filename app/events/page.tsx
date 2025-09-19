@@ -5,14 +5,8 @@ const page = () => {
   return (
     <Section
       isContentLeft={true}
-      contentLeft={
-        <p>Left text</p>
-      }
-      contentRight={
-        <p className="text-center">
-          Right text
-        </p>
-      }
+      headerText="Events"
+      content={<p className="text-center">Right text</p>}
     />
   );
 };

@@ -1,31 +1,58 @@
 import React, { ReactNode } from "react";
+import Image from "next/image";
 
 interface props {
   isContentLeft: boolean;
-  contentLeft: ReactNode;
-  contentRight: ReactNode;
+  headerText: string;
+  content: ReactNode;
+  image?: ReactNode;
 }
 
 const Section = (props: props) => {
   return (
-    <div className="flex h-[calc(100vh-100px)] w-full">
-      {/* 100px is/was the width of the navbar */}
-
+    <div className="flex h-[calc(100vh-64px)] w-full bg-background font-display">
       {/* Left div */}
       <div
-        className={`h-full w-[${props.isContentLeft ? "40%" : "60%"}] ${
-          props.isContentLeft ? "" : "bg-primary"
-        } justify-items-center place-content-center`}
+        className={`${
+          !props.isContentLeft ? "flex-1" : "flex-2"
+        }  justify-items-center place-content-center`}
       >
-        {props.contentLeft}
+        {!props.isContentLeft ? (
+          <div className="h-9/10 w-full rounded-r-2xl bg-cshs-900 justify-items-center place-content-center">
+            {props.image !== undefined ? (
+              props.image
+            ) : (
+              <Image src="/icon.png" width={300} height={300} alt="CSHS Logo" />
+            )}
+            <p className="text-5xl text-white font-semibold text-center">
+              {props.headerText}
+            </p>
+          </div>
+        ) : (
+          props.content
+        )}
       </div>
+
       {/* Right div */}
       <div
-        className={`h-full w-[${props.isContentLeft ? "60%" : "40%"}] ${
-          props.isContentLeft ? "bg-blue-200" : ""
+        className={`${
+          props.isContentLeft ? "flex-1" : "flex-2"
         } justify-items-center place-content-center`}
       >
-        {props.contentRight}
+        {props.isContentLeft ? (
+          <div className="h-9/10 w-full rounded-l-2xl bg-cshs-900 justify-items-center place-content-center">
+            {props.image !== undefined ? (
+              props.image
+            ) : (
+              <Image src="/icon.png" width={300} height={300} alt="CSHS Logo" />
+            )}
+            <p className="text-5xl text-white font-semibold text-center">
+              {props.headerText}
+            </p>
+          </div>
+        ) : (
+          props.content
+        )}
       </div>
     </div>
   );
