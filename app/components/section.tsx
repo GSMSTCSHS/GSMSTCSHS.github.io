@@ -18,7 +18,7 @@ const Section = (props: props) => {
         }  justify-items-center place-content-center`}
       >
         {!props.isContentLeft ? (
-          <div className="h-9/10 w-full rounded-r-2xl bg-cshs-900 justify-items-center place-content-center">
+          <div className="h-8/10 w-full rounded-r-2xl bg-cshs-900 justify-items-center place-content-center p-5">
             {props.image !== undefined ? (
               props.image
             ) : (
