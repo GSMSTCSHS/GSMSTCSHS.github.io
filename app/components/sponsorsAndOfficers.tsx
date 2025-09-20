@@ -7,7 +7,7 @@ const SponsorsAndOfficers = () => {
       <div className="text-xl sm:text-3xl md:text-4xl bg-cshs-300 text-cshs-900 rounded-xl p-3 my-3 font-medium">
         <p>Sponsors: Julia Rachkovskiy & Ben Schepens</p>
       </div>
-      <div className="grid grid-cols-2 gap-4 text-lg sm:text-2xl">
+      <div className="pt-4 grid grid-cols-2 gap-8 text-lg sm:text-3xl">
         <p>
           President: <br />
           Elizabeth Tsiporkin
