@@ -4,7 +4,7 @@ import Banner from "../components/banner";
 
 const page = () => {
   return (
-    <main className="bg-background">
+    <main className="bg-background min-h-[calc(100dvh-64px)]">
       <Banner text="Service Opportunities" className="bg-cshs-700" />
       <Section
         isContentLeft={false}

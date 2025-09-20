@@ -55,7 +55,7 @@ const Section = (props: props) => {
         )}
       </div>
       {/* Mobile div */}
-      <div className="flex flex-col sm:hidden py-4  items-center">
+      <div className="w-full sm:hidden py-4 place-items-center">
         <div className="bg-cshs-900 py-4 w-[90vw] rounded-xl">
           <p className="text-4xl text-cshs-300 font-semibold text-center">
             {props.headerText}

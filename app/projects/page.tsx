@@ -4,7 +4,7 @@ import Section from "../components/section";
 
 const page = () => {
   return (
-    <main className="bg-background">
+    <main className="bg-background min-h-[calc(100dvh-64px)]">
       <Section
         isContentLeft={true}
         image={
