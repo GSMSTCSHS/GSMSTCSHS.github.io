@@ -3,7 +3,7 @@ import SponsorsAndOfficers from "./components/sponsorsAndOfficers";
 
 export default function Home() {
   return (
-    <main className="bg-background place-items-center">
+    <main className="bg-background place-items-center h-full pb-5">
       <Section
         isContentLeft={false}
         headerText="GSMST CSHS"
@@ -24,7 +24,6 @@ export default function Home() {
           </div>
         }
       />
-      <SponsorsAndOfficers />
 
       <Section
         isContentLeft={true}
@@ -103,6 +102,7 @@ export default function Home() {
           </div>
         }
       />
+      <SponsorsAndOfficers />
     </main>
   );
 }
