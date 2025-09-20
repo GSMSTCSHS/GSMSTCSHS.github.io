@@ -1,9 +1,13 @@
 import Section from "./components/section";
 import SponsorsAndOfficers from "./components/sponsorsAndOfficers";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="bg-background place-items-center h-full pb-5">
+      <div className="block sm:hidden">
+        <Image src="/icon.png" width={150} height={300} alt="CSHS Logo" />
+      </div>
       <Section
         isContentLeft={false}
         headerText="GSMST CSHS"

@@ -3,7 +3,7 @@ import React from "react";
 const NotFound = () => {
   return (
     <div className="mt-[45vh] w-full place-items-center">
-      <p className="text-2xl">404 - Page Not Found</p>
+      <p className="text-2xl">This is in active development by our officers. Stay tuned!</p>
     </div>
   );
 };

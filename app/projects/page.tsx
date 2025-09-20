@@ -16,7 +16,7 @@ const page = () => {
             className="pb-5"
           />
         }
-        headerText="Project Details"
+        headerText="Samsung Solve For Tomorrow"
         content={<p>Samsung SFT</p>}
       />
       <Section
@@ -31,7 +31,7 @@ const page = () => {
             className="pb-5"
           />
         }
-        headerText="Project Details"
+        headerText=" Congressional App Challenge"
       />
     </main>
   );

@@ -6,6 +6,7 @@
   --color-cshs-900: oklch(0.2493 0.0895 257.95);
   --color-cshs-800: oklch(0.344 0.1026 252.89);
   --color-cshs-700: oklch(0.4582 0.120175 246.8873);
+  --color-cshs-300: oklch(0.9601 0.0299 78.79);
 
   --font-display: var(--font-cormorant), serif;
 }
