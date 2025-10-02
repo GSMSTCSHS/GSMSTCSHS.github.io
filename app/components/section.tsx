@@ -10,7 +10,7 @@ interface props {
 
 const Section = (props: props) => {
   return (
-    <div className="flex sm:h-[calc(100vh-64px)] w-full">
+    <div className="flex sm:h-[calc(100vh-64px)] max-h-[1000px] w-full">
       {/* Left div */}
       <div
         className={`${
@@ -18,7 +18,7 @@ const Section = (props: props) => {
         }  justify-items-center place-content-center hidden sm:block`}
       >
         {!props.isContentLeft ? (
-          <div className="h-8/10 w-full rounded-r-2xl bg-cshs-900 justify-items-center place-content-center p-5">
+          <div className="h-4/5 max-h-[600px] w-full rounded-r-2xl bg-cshs-900 justify-items-center place-content-center p-5">
             {props.image !== undefined ? (
               props.image
             ) : (
@@ -29,7 +29,7 @@ const Section = (props: props) => {
             </p>
           </div>
         ) : (
-          props.content
+          <div className="p-5">{props.content}</div>
         )}
       </div>
 
@@ -40,7 +40,7 @@ const Section = (props: props) => {
         } justify-items-center place-content-center hidden sm:block`}
       >
         {props.isContentLeft ? (
-          <div className="h-9/10 w-full rounded-l-2xl bg-cshs-900 justify-items-center place-content-center">
+          <div className="h-4/5 max-h-[600px] w-full rounded-l-2xl bg-cshs-900 justify-items-center place-content-center">
             {props.image !== undefined ? (
               props.image
             ) : (
@@ -51,7 +51,7 @@ const Section = (props: props) => {
             </p>
           </div>
         ) : (
-          props.content
+          <div className="p-5">{props.content}</div>
         )}
       </div>
       {/* Mobile div */}

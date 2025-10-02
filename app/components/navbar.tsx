@@ -5,12 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { PersonCircleOutline, Menu, CloseOutline } from "react-ionicons";
 
-const pages = [
-  { label: "Home", href: "/" },
-  { label: "Announcements", href: "/announcements" },
-  { label: "Service", href: "/service" },
-  { label: "Projects", href: "/projects" },
-  { label: "Calendar", href: "/calendar" },
+const pages: {label: string, href: string}[] = [
+  // { label: "Home", href: "/" },
+  // { label: "Announcements", href: "/announcements" },
+  // { label: "Service", href: "/service" },
+  // { label: "Projects", href: "/projects" },
+  // { label: "Calendar", href: "/calendar" },
 ];
 const settings = [
   { label: "Account", href: "/account" },
@@ -49,7 +49,7 @@ const Navbar = () => {
             <Image width={64} height={64} src="/icon.png" alt="CSHS Logo" />
             <p className="text-2xl text-cshs-300">GSMST CSHS</p>
           </Link>
-          {pages.map((value) => (
+          {pages !== null ? (pages.map((value) => (
             <Link
               href={value.href}
               key={value.label}
@@ -57,7 +57,9 @@ const Navbar = () => {
             >
               {value.label}
             </Link>
-          ))}
+          ))) : (
+            <></>
+          )}
           <Link href={"/account"}>
             <PersonCircleOutline
               height="48px"

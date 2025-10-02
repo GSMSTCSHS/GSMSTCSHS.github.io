@@ -33,8 +33,8 @@ export default function Home() {
         isContentLeft={true}
         headerText="Member Eligibility"
         content={
-          <div className="p-5">
-            <p className="">
+          <div className="text-lg">
+            <p>
               Membership into the Computer Science Honor Society is by
               invitation only. Eligible Juniors and Seniors receive an
               invitation to apply during September of each year. To be eligible,
